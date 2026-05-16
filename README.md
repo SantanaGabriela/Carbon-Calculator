@@ -2,12 +2,6 @@
 
 Uma página estática de calculadora de emissões de CO₂ com interface moderna, cards de resultado e deploy automático via GitHub Pages.
 
-## 📌 Link do projeto
-
-https://santanagabriela.github.io/Carbon-Calculator/
-
-> Se o site ainda não estiver disponível, aguarde alguns minutos após o push e verifique novamente.
-
 ## ✨ Descrição
 
 Esta aplicação permite calcular a emissão de CO₂ para viagens entre cidades brasileiras com base no modo de transporte selecionado. Ela traz:
