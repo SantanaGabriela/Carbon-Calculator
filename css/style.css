@@ -1,0 +1,810 @@
+/* ============================================================================
+   CSS Variables - Global Theme
+   ============================================================================ */
+
+:root {
+    /* Colors */
+    --color-primary: #2e7d32;
+    --color-primary-hover: #1b5e20;
+    --color-background: #f1f8e9;
+    --color-surface: #ffffff;
+    --color-text: #333333;
+    --color-text-muted: #666666;
+    --color-border: #cccccc;
+    --color-success: #4caf50;
+    --color-warning: #ff9800;
+    --color-error: #f44336;
+    --color-surface-alt: #fcfffb;
+    --color-border-subtle: #dde3d5;
+    --color-muted-bg: #f7faf3;
+    --color-surface-strong: #f0f6ed;
+    --color-soft-green-tint: #e8f5e9;
+    --gradient-bg: radial-gradient(circle at top, rgba(46, 125, 50, 0.12), transparent 45%), radial-gradient(circle at bottom right, rgba(30, 136, 229, 0.08), transparent 30%);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Border Radius */
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+    
+    /* Transitions */
+    --transition-quick: 0.15s ease;
+    --transition-smooth: 0.2s ease;
+    --transition-default: 0.3s ease;
+    
+    /* Font Stack */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-xs: 0.75rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    
+    /* Line Heights */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+}
+
+/* ============================================================================
+   Global Reset & Base Styles
+   ============================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    background-image: var(--gradient-bg);
+    background-attachment: fixed;
+    transition: background-color var(--transition-default);
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+}
+
+/* ============================================================================
+   Typography
+   ============================================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+h1 {
+    font-size: var(--font-size-2xl);
+}
+
+h2 {
+    font-size: var(--font-size-xl);
+}
+
+h3 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================================================
+   Utility Classes
+   ============================================================================ */
+
+.hidden {
+    display: none !important;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ============================================================================
+   Header
+   ============================================================================ */
+
+.header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    color: var(--color-surface);
+    padding: calc(var(--spacing-xl) + 0.5rem) var(--spacing-md);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18), transparent 28%);
+    pointer-events: none;
+}
+
+.header__container {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.header__title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.header__subtitle {
+    font-size: var(--font-size-sm);
+    opacity: 0.95;
+    line-height: var(--line-height-relaxed);
+}
+
+/* ============================================================================
+   Main Content
+   ============================================================================ */
+
+.main {
+    padding: calc(var(--spacing-lg) + 1rem) 0 0;
+    min-height: calc(100vh - 220px);
+}
+
+.main__container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ============================================================================
+   Calculator Form
+   ============================================================================ */
+
+.calculator {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: calc(var(--spacing-lg) + 0.5rem);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--color-border-subtle);
+}
+
+.calculator__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* ============================================================================
+   Form Inputs
+   ============================================================================ */
+
+.calculator__inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.calculator__input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.calculator__label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    display: block;
+}
+
+.calculator__input {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-family: inherit;
+    transition: border-color var(--transition-smooth), 
+                box-shadow var(--transition-smooth),
+                background-color var(--transition-smooth);
+    background-color: var(--color-surface-alt);
+}
+
+.calculator__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.14);
+}
+
+.calculator__input:disabled,
+.calculator__input--readonly {
+    background-color: #f5f5f5;
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.calculator__input--readonly:focus {
+    border-color: var(--color-border);
+    box-shadow: none;
+}
+
+/* Datalist styling */
+.calculator__input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.7;
+}
+
+/* ============================================================================
+   Distance Input Group
+   ============================================================================ */
+
+.calculator__distance-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.calculator__distance-input {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.calculator__helper-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+/* ============================================================================
+   Checkbox Styling
+   ============================================================================ */
+
+.calculator__manual-distance {
+    display: flex;
+    align-items: center;
+}
+
+.calculator__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    user-select: none;
+    transition: color var(--transition-smooth);
+}
+
+.calculator__checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary);
+    transition: all var(--transition-smooth);
+}
+
+.calculator__checkbox:hover {
+    transform: scale(1.1);
+}
+
+.calculator__checkbox-label:hover {
+    color: var(--color-primary);
+}
+
+/* ============================================================================
+   Transport Mode Selector
+   ============================================================================ */
+
+.calculator__transport-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calculator__legend {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.calculator__transport-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.calculator__transport-option {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Hide the default radio button */
+.calculator__radio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+}
+
+/* Style the label as a card */
+.calculator__transport-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-border);
+    border-radius: calc(var(--border-radius) * 0.9);
+    background-color: var(--color-surface);
+    cursor: pointer;
+    transition: transform var(--transition-smooth),
+                box-shadow var(--transition-smooth),
+                background-color var(--transition-smooth),
+                color var(--transition-smooth);
+    font-size: var(--font-size-sm);
+    font-weight: 300;
+    min-height: 90px;
+    user-select: none;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.calculator__transport-emoji {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.calculator__transport-text {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+
+/* Hover state for non-selected cards */
+.calculator__radio:hover + .calculator__transport-label {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Checked state: solid black card, white text, no colored glow */
+.calculator__radio:checked + .calculator__transport-label {
+    background-color: #000000;
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+.calculator__radio:checked + .calculator__transport-label .calculator__transport-text,
+.calculator__radio:checked + .calculator__transport-label .calculator__transport-emoji {
+    color: #ffffff;
+}
+
+/* ============================================================================
+   Buttons
+   ============================================================================ */
+
+.calculator__button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition-smooth), background-color var(--transition-smooth), box-shadow var(--transition-smooth);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.16);
+    margin-top: var(--spacing-sm);
+    width: 100%;
+}
+
+.calculator__button:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: 0 12px 26px rgba(46, 125, 50, 0.2);
+    transform: translateY(-2px);
+}
+
+.calculator__button:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.calculator__button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.calculator__button:disabled {
+    background-color: var(--color-text-muted);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ============================================================================
+   Results Sections
+   ============================================================================ */
+
+.results,
+.comparison,
+.carbon-credits {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    animation: slideDownFadeIn var(--transition-default) ease;
+    border: 1px solid var(--color-border-subtle);
+}
+
+.results__title,
+.comparison__title,
+.carbon-credits__title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.results__content,
+.comparison__content,
+.carbon-credits__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.results__grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.results__card {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.results__card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.results__card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+}
+
+.results__card p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+}
+
+.results__card--savings {
+    grid-column: 1 / -1;
+    background: #eef7ee;
+    border-color: var(--color-success);
+}
+
+.comparison__list {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.comparison__item {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border-subtle);
+    background: var(--color-surface-alt);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.comparison__item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.comparison__item--selected {
+    border-color: var(--color-primary);
+    background: #e7f3e7;
+}
+
+.comparison__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.comparison__icon {
+    font-size: 1.5rem;
+}
+
+.comparison__header strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.comparison__header p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.comparison__badge {
+    background: var(--color-primary);
+    color: var(--color-surface);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.comparison__stats {
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.comparison__bar {
+    background: var(--color-muted-bg);
+    border-radius: 999px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: var(--spacing-sm);
+}
+
+.comparison__bar-fill {
+    background: var(--color-primary);
+    height: 100%;
+    transition: width var(--transition-smooth);
+}
+
+.carbon-credits__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-md);
+}
+
+.carbon-credits__card {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.carbon-credits__card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.carbon-credits__value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0.35rem 0 0.75rem;
+}
+
+.carbon-credits__helper {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.carbon-credits__info {
+    background: var(--color-surface-strong);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    color: var(--color-text);
+    line-height: var(--line-height-relaxed);
+}
+
+.carbon-credits__button {
+    margin-top: var(--spacing-md);
+    width: 100%;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition-smooth), background-color var(--transition-smooth);
+}
+
+.carbon-credits__button:hover {
+    background: #333333;
+    transform: translateY(-1px);
+}
+
+/* ============================================================================
+   Animations
+   ============================================================================ */
+
+@keyframes slideDownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================================
+   Footer
+   ============================================================================ */
+
+.footer {
+    background-color: var(--color-text);
+    color: var(--color-surface);
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.footer__container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer__text {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+    }
+
+    .calculator {
+        padding: var(--spacing-md);
+    }
+
+    .header {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .header__title {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 0.9rem;
+        --spacing-lg: 1.1rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-xl: 1.2rem;
+    }
+
+    .calculator__inputs {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .calculator__transport-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .calculator__transport-label {
+        min-height: 80px;
+        padding: var(--spacing-sm);
+    }
+
+    .results__grid,
+    .carbon-credits__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header__title {
+        font-size: var(--font-size-xl);
+    }
+
+    .header__subtitle {
+        font-size: var(--font-size-xs);
+    }
+
+    .main {
+        padding: var(--spacing-md) 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .calculator {
+        border-radius: var(--border-radius);
+        padding: var(--spacing-sm);
+    }
+
+    .calculator__button {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+
+    .calculator__transport-label {
+        min-height: 70px;
+    }
+}
+
+/* ============================================================================
+   Accessibility
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Remove outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
