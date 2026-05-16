@@ -46,18 +46,3 @@ Esta aplicação permite calcular a emissão de CO₂ para viagens entre cidades
 - Cards de resultados com emojis e contraste
 - GitHub Pages para hospedagem gratuita
 
-## 🛠️ How to run locally
-
-```bash
-cd "C:\Users\gabi1\Desktop\Carbon-Calculator"
-# Abra index.html no navegador
-```
-
-## ✅ Deploy no GitHub Pages
-
-O deploy já está configurado em `.github/workflows/deploy-pages.yml` e publicado automaticamente após cada push para `main`.
-
-## 📎 Observações
-
-- Caso a página não apareça imediatamente, aguarde a execução do workflow GitHub Actions.
-- O link final utilizado neste README é o domínio padrão do GitHub Pages para o repositório.
